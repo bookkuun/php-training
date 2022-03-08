@@ -10,8 +10,7 @@ $arry = [
     'num' => 0
 ];
 
-require('file1.php');
-require('file1.php');
+require_once('file1.php');
 // require_once('file2.php');
 
 fn1();
