@@ -1,0 +1,1 @@
+{"version":1,"defects":{"MyTest::test2":3,"MyTest::test3":3},"times":{"MyTest::test1":0.003,"MyTest::test2":0.001,"MyTest::test3":0.001,"MyTest::testException":0}}
