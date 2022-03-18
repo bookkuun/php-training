@@ -5,10 +5,11 @@ echo $_SERVER['REQUEST_URI'];
 require_once SOURCE_BASE . 'partials/header.php';
 
 $rpath = str_replace(BASE_CONTEXT_PATH, '', $_SERVER['REQUEST_URI']);
+$method = strtolower($_SERVER['REQUEST_METHOD']);
 
-route($rpath);
+route($rpath, $method);
 
-function route($rpath)
+function route($rpath, $method)
 {
     if ($rpath === '') {
         $rpath = 'home';
@@ -22,6 +23,9 @@ function route($rpath)
     }
 
     require_once $targetFile;
+
+    $fn = "\\controller\\{$rpath}\\{$method}";
+    $fn();
 }
 
 require_once SOURCE_BASE . 'partials/footer.php';
