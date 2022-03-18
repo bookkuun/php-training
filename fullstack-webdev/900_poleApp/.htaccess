@@ -1,0 +1,12 @@
+# リライトエンジンをOnにする
+RewriteEngine On
+
+# リクエストできたパスがpollからきていない場合には、poleのパスにリダイレクトする
+RewriteCond %{REQUEST_URI} !^/poll
+RewriteRule .? /poll/ [R,L]
+
+# # ファイルが見つからない
+RewriteCond %{REQUEST_FILENAME} !-f
+# # ディレクトリが見つからない
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule .? /poll/

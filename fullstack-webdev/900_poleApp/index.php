@@ -1,20 +1,16 @@
 <?php
 require_once 'config.php';
-?>
+echo $_SERVER['REQUEST_URI'];
 
 
-<!DOCTYPE html>
-<html lang="ja">
+require_once SOURCE_BASE . 'partials/header.php';
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>voteApp</title>
-</head>
+if ($_SERVER['REQUEST_URI'] === '/poll/login') {
+    require_once SOURCE_BASE . 'controllers/login.php';
+} elseif ($_SERVER['REQUEST_URI'] === '/poll/register') {
+    require_once SOURCE_BASE . 'controllers/register.php';
+} elseif ($_SERVER['REQUEST_URI'] === '/poll/home') {
+    require_once SOURCE_BASE . 'controllers/home.php';
+}
 
-<body>
-    <img src="<?php echo BASE_IMAGE_PATH ?>logo.svg" alt="">
-</body>
-
-</html>
+require_once SOURCE_BASE . 'partials/footer.php';
