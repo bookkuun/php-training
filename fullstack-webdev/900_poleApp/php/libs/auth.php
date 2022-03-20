@@ -28,10 +28,10 @@ class Auth
                     // $userはオブジェクト
                     UserModel::setSession($user);
                 } else {
-                    echo 'パスワードが一致しません。';
+                    Msg::push(Msg::ERROR, 'パスワードが一致しません。');
                 }
             } else {
-                echo 'ユーザーが見つかりません。';
+                Msg::push(Msg::ERROR, 'ユーザーが見つかりません。');
             }
         } catch (Throwable $e) {
             $is_success = false;
@@ -60,7 +60,7 @@ class Auth
             $exist_user = UserQuery::fetchById($user->id);
 
             if (!empty($exist_user)) {
-                echo 'ユーザーが既に存在しています。';
+                Msg::push(Msg::ERROR, 'ユーザーが既に存在しています。');
                 return false;
             }
 
