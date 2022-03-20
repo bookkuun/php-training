@@ -2,6 +2,18 @@
 require_once 'config.php';
 echo $_SERVER['REQUEST_URI'];
 
+// Model
+require_once SOURCE_BASE . 'models/user.model.php';
+
+// DB
+require_once SOURCE_BASE . 'db/datasource.php';
+require_once SOURCE_BASE . 'db/user.query.php';
+
+use db\UserQuery;
+
+$result = UserQuery::fetchById('test');
+var_dump($result);
+
 require_once SOURCE_BASE . 'partials/header.php';
 
 $rpath = str_replace(BASE_CONTEXT_PATH, '', $_SERVER['REQUEST_URI']);
