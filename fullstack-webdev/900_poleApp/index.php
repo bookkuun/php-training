@@ -1,7 +1,8 @@
 <?php
 require_once 'config.php';
-echo $_SERVER['REQUEST_URI'];
 
+require_once SOURCE_BASE . 'libs/helper.php';
+require_once SOURCE_BASE . 'libs/auth.php';
 // Model
 require_once SOURCE_BASE . 'models/user.model.php';
 
