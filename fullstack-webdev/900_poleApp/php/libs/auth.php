@@ -95,4 +95,16 @@ class Auth
             return false;
         }
     }
+
+    public static function logout()
+    {
+        try {
+            UserModel::clearSession();
+        } catch (Throwable $e) {
+            Msg::push(Msg::DEBUG, $e->getMessage());
+            return false;
+        }
+
+        return true;
+    }
 }
