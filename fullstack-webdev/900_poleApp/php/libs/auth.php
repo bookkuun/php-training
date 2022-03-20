@@ -11,6 +11,13 @@ class Auth
     public static function login($id, $pwd)
     {
         try {
+            if (
+                !(UserModel::validateId($id)
+                    * UserModel::validatePwd($pwd))
+            ) {
+                return false;
+            }
+
             $is_success = false;
 
             $user = UserQuery::fetchById($id);
@@ -39,6 +46,15 @@ class Auth
     public static function regist($user)
     {
         try {
+            if (
+                !($user->isValidId()
+                    * $user->isValidPwd()
+                    * $user->isValidNickName()
+                )
+            ) {
+                return false;
+            }
+
             $is_success = false;
 
             $exist_user = UserQuery::fetchById($user->id);
